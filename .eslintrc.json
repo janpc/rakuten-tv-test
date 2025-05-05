@@ -1,0 +1,9 @@
+{
+  "extends": ["react-app", "airbnb"],
+  "plugins": ["react", "react-hooks", "import"],
+  "rules": {
+    "no-console": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off"
+  }
+}
