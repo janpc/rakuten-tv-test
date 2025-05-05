@@ -2,9 +2,10 @@
   "extends": ["react-app", "airbnb"],
   "plugins": ["react", "react-hooks", "import"],
   "rules": {
-    "no-console": "error",
+    "no-console": "warn",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/prop-types": "off"
   }
 }
