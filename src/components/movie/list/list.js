@@ -4,7 +4,7 @@ import {
   MoviesContainer,
   Title,
   Wrapper,
-} from './listStyles';
+} from './list.styles';
 import MovieListItem from '../item/item';
 import arrowLeft from '../../../assets/images/arrow-left.svg';
 import arrowRight from '../../../assets/images/arrow-right.svg';

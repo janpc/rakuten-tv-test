@@ -1,4 +1,4 @@
-import { ArtWork, MovieLink } from './itemStyles';
+import { ArtWork, MovieLink } from './item.styles';
 
 export default function MovieListItem({ movie }) {
   return (
