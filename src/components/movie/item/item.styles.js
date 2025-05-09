@@ -14,10 +14,19 @@ export const MovieLink = styled(Link)`
   }
 `;
 
+export const EmptyItem = styled.div`
+  width: 100%;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  background-color: var(--loading-color);
+`;
+
 export const ArtWork = styled.img`
   width: 100%;
   position: relative;
   transition: all 0.2s ease-in-out;
+  aspect-ratio: 5/7;
+  object-fit: cover;
 
   &:hover, &:focus, ${MovieLink}:focus & {
     transform: scale(1.1);

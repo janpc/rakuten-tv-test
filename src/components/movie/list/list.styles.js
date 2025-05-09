@@ -11,6 +11,13 @@ export const Title = styled.h1`
   margin-bottom: 1.2rem;
 `;
 
+export const LoadingTitle = styled.div`
+  width: 400px;
+  height: 1.2rem;
+  background-color: var(--loading-color);
+  margin-bottom: 1.2rem;
+`;
+
 // Create a Wrapper component that'll render a <section> tag with some styles
 export const Wrapper = styled.section`
   position: relative;
