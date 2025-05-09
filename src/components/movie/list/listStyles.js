@@ -14,15 +14,14 @@ export const Title = styled.h1`
 // Create a Wrapper component that'll render a <section> tag with some styles
 export const Wrapper = styled.section`
   position: relative;
-  padding: 0 var(--main-margin);
-  margin-bottom: 50px;
+  padding: 0 var(--main-margin) 50px;
+  overflow: hidden;
 `;
 
 export const MoviesContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: fit-content;
-  overflow: hidden;
   transform: translateX(${(props) => props.$translate}px);
   transition: transform 0.5s ease-in-out;
 `;
@@ -30,7 +29,7 @@ export const MoviesContainer = styled.div`
 export const ArrowButton = styled.button`
   position: absolute;
   top: 1.2rem;
-  bottom: 0;
+  bottom: 50px;
   color: white;
   ${(props) => props.$position}: 0;
   background-color: red;
@@ -38,10 +37,17 @@ export const ArrowButton = styled.button`
   z-index: 1;
   background: linear-gradient(to ${(props) => props.$position}, transparent 0%, var(--bg-color) 90%);
   border: none;
+  outline: none;
 
   ${(props) => (!props.disabled && 'cursor: pointer;')}
 
   img {
     display: ${(props) => (props.$display ? 'block' : 'none')};
   }
+
+  &:hover img, &:focus img {
+      transform: scale(1.1);
+      z-index: 10;
+      filter: drop-shadow(0 0 15px #fff);
+    }
 `;

@@ -49,6 +49,8 @@ export default function List({ listPromise }) {
     <Wrapper
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
     >
       <Title>{name}</Title>
       <ArrowButton
