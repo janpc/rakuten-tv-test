@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const MovieLink = styled(Link)`
   display: flex;
-  width: calc((100vw - (var(--main-margin) * 2)) / 9);
+  width: calc((100vw - (var(--main-margin) * 2)) / 3);
   padding-inline: 2px;
   box-sizing: border-box;
   position: relative;
@@ -11,6 +11,23 @@ export const MovieLink = styled(Link)`
 
   &:hover, &:focus {
     z-index: 10;
+  }
+
+
+  @media (min-width: 450px) {
+    width: calc((100vw - (var(--main-margin) * 2)) / 4);
+  }
+
+  @media (min-width: 800px) {
+    width: calc((100vw - (var(--main-margin) * 2)) / 6);
+  }
+
+  @media (min-width: 1100px) {
+    width: calc((100vw - (var(--main-margin) * 2)) / 7);
+  }
+
+  @media (min-width: 1920px) {
+    width: calc((100vw - (var(--main-margin) * 2)) / 9);
   }
 `;
 

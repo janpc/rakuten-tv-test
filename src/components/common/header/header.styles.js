@@ -7,6 +7,18 @@ export const Container = styled.header`
 
 export const HomeLink = styled(Link)`
   img {
-    width: 300px;
+    width: 150px;
+
+    @media (min-width: 450px) {
+       width: 200px;
+    }
+
+    @media (min-width: 800px) {
+       width: 250px;
+    }
+
+    @media (min-width: 1100px) {
+       width: 300px;
+    }
   }
 `;

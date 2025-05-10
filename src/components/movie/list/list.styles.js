@@ -41,6 +41,7 @@ export const ArrowButton = styled.button`
   ${(props) => props.$position}: 0;
   background-color: red;
   min-width: var(--main-margin);
+  width: 40px;
   z-index: 1;
   background: linear-gradient(to ${(props) => props.$position}, transparent 0%, var(--bg-color) 90%);
   border: none;
