@@ -6,7 +6,7 @@ import close from '../../../assets/images/close.svg';
 export default function Modal({ children, onClose }) {
   return (
     <Background onClick={onClose}>
-      <Content>
+      <Content onClick={(e) => { e.stopPropagation(); }}>
         <CloseButton onClick={onClose}>
           <CloseCross alt="Close modal" src={close} />
         </CloseButton>

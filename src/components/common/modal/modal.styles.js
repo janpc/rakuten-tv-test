@@ -17,6 +17,7 @@ export const Background = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow-y: scroll;
 `;
 
@@ -65,5 +66,4 @@ export const CloseButton = styled.button`
 export const CloseCross = styled.img`
   height: 20px;
   width: 20px;
-  ertical-align: middle;
 `;

@@ -1,11 +1,42 @@
-import { use } from 'react';
+/* eslint-disable camelcase */
+import { use, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Modal from '../../common/modal/modal';
+import {
+  Cast,
+  Description,
+  Directors,
+  Genres,
+  ImageContent,
+  ImageTitle,
+  MovieInfo,
+  People,
+  PeopleList,
+  PeopleTitle,
+  ShowMore,
+  Snapshot,
+  SnapshotContainer,
+  Title,
+  TrailerButton,
+  TrailerImage,
+} from './details.styles';
+import PeopleListItem from '../../people/item/item';
+import trailerIcon from '../../../assets/images/trailer.svg';
 
 export default function Detils({ moviePromise }) {
-  const movie = use(moviePromise);
+  const {
+    title,
+    images,
+    genres,
+    plot,
+    directors,
+    actors,
+    id,
+  } = use(moviePromise);
+
   const navigate = useNavigate();
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   function handleClose() {
     navigate('/');
@@ -13,7 +44,63 @@ export default function Detils({ moviePromise }) {
 
   return (
     <Modal onClose={handleClose}>
-      {movie.title}
+      <SnapshotContainer>
+        <Snapshot alt={title} src={images.snapshot_webp} />
+        <ImageContent>
+          {images.title_treatment
+            ? <ImageTitle src={images.title_treatment} />
+            : <Title>{title}</Title>}
+          <TrailerButton to={`/play/trailer/${id}`}>
+            <TrailerImage src={trailerIcon} alt="Play Trailer" />
+          </TrailerButton>
+        </ImageContent>
+      </SnapshotContainer>
+      <MovieInfo>
+        <Genres>
+          {genres.map(({ name }, index) => {
+            if (index === genres.length - 1) {
+              return <span>{name}</span>;
+            }
+
+            return (
+              <span>
+                {name}
+                ,
+              </span>
+            );
+          })}
+        </Genres>
+        <Description $full={showFullDescription}>
+          <span>{plot}</span>
+          {!showFullDescription
+            && (
+              <ShowMore
+                type="button"
+                onClick={() => setShowFullDescription(true)}
+              >
+                Ver más...
+              </ShowMore>
+            )}
+        </Description>
+      </MovieInfo>
+      <People>
+        <Directors>
+          <PeopleTitle>Directores</PeopleTitle>
+          <PeopleList $cols={1}>
+            {
+              directors.map(((director) => <PeopleListItem info={director} />))
+            }
+          </PeopleList>
+        </Directors>
+        <Cast>
+          <PeopleTitle>Cast</PeopleTitle>
+          <PeopleList $cols={3}>
+            {
+              actors.map(((actor) => <PeopleListItem info={actor} />))
+            }
+          </PeopleList>
+        </Cast>
+      </People>
     </Modal>
   );
 }
