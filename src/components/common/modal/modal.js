@@ -7,9 +7,11 @@ export default function Modal({ children, onClose }) {
   return (
     <Background onClick={onClose}>
       <Content onClick={(e) => { e.stopPropagation(); }}>
-        <CloseButton onClick={onClose}>
-          <CloseCross alt="Close modal" src={close} />
-        </CloseButton>
+        {onClose && (
+          <CloseButton onClick={onClose}>
+            <CloseCross alt="Close modal" src={close} />
+          </CloseButton>
+        )}
         {children}
       </Content>
     </Background>

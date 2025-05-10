@@ -32,7 +32,6 @@ export const Content = styled.section`
   border-radius: 24px;
   margin-top: 32px;
   margin-bottom: 32px;
-  min-height: 100px;
   overflow: hidden;
 `;
 export const CloseButton = styled.button`

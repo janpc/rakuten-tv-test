@@ -221,3 +221,16 @@ export const PeopleTitle = styled.h2`
   text-align: left;
   line-height: 20px;
 `;
+
+export const LoadingContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Loading = styled.img`
+  width: 60px;
+  margin: 0 auto;
+`;
