@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Player } from 'bitmovin-player';
 import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
 import 'bitmovin-player/bitmovinplayer-ui.css';
+import { PlayerContainer } from '../styles/player.styles';
 
 function BitmovinPlayer() {
   const [player, setPlayer] = useState(null);
@@ -26,9 +27,6 @@ function BitmovinPlayer() {
       UIFactory.buildDefaultUI(playerInstance);
       playerInstance.load(playerSource).then(() => {
         setPlayer(playerInstance);
-        console.log('Successfully loaded source');
-      }, () => {
-        console.log('Error while loading source');
       });
     }
 
@@ -46,7 +44,7 @@ function BitmovinPlayer() {
     };
   }, []);
 
-  return <div id="player" ref={playerDiv} />;
+  return <PlayerContainer id="player" ref={playerDiv} />;
 }
 
 export default BitmovinPlayer;
