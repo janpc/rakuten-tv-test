@@ -5,7 +5,7 @@ export async function fetchList(name) {
     if (!res.ok) {
       return {
         error: true,
-        content: 'Something went Wrong',
+        content: `Something went wrong loading ${name}.`,
       };
     }
 
@@ -27,7 +27,7 @@ export async function fetchMovie(id) {
     if (!res.ok) {
       return {
         error: true,
-        content: 'Something went Wrong',
+        content: `Something went wrong loading ${id}.`,
       };
     }
 

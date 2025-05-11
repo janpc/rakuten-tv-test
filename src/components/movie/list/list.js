@@ -1,4 +1,11 @@
-import { use, useRef, useState } from 'react';
+/* eslint-disable consistent-return */
+import {
+  use,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ArrowButton,
   MoviesContainer,
@@ -10,12 +17,24 @@ import arrowLeft from '../../../assets/images/arrow-left.svg';
 import arrowRight from '../../../assets/images/arrow-right.svg';
 
 export default function List({ listPromise }) {
-  const { name, movies } = use(listPromise);
+  const {
+    name,
+    movies,
+    error,
+    content,
+  } = use(listPromise);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isFullLeft, setIsFullLeft] = useState(true);
   const [isFullRight, setIsFullRight] = useState(false);
   const [hover, setHover] = useState(false);
   const moviesContainerRef = useRef();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (error) {
+      navigate('/error', { state: content });
+    }
+  }, [error]);
 
   function scrollListLeft() {
     let x = scrollPosition - (window.innerWidth - (64 * 2));
@@ -43,6 +62,10 @@ export default function List({ listPromise }) {
     setIsFullRight(false);
 
     setScrollPosition(x);
+  }
+
+  if (error) {
+    return;
   }
 
   return (

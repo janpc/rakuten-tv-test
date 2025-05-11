@@ -1,5 +1,6 @@
+/* eslint-disable consistent-return */
 /* eslint-disable camelcase */
-import { use, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Modal from '../../common/modal/modal';
@@ -33,13 +34,25 @@ export default function Detils({ moviePromise }) {
     directors,
     actors,
     id,
+    error,
+    content,
   } = use(moviePromise);
 
   const navigate = useNavigate();
   const [showFullDescription, setShowFullDescription] = useState(false);
 
+  useEffect(() => {
+    if (error) {
+      navigate('/error', { state: content });
+    }
+  }, [error]);
+
   function handleClose() {
     navigate('/');
+  }
+
+  if (error) {
+    return;
   }
 
   return (
