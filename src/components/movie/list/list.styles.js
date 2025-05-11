@@ -8,7 +8,7 @@ export const Title = styled.h1`
   font-weight: bold;
   color: var(--main-color);
   text-align: left;
-  margin-bottom: 1.2rem;
+  margin: 0 var(--main-margin);
 `;
 
 export const LoadingTitle = styled.div`
@@ -16,20 +16,34 @@ export const LoadingTitle = styled.div`
   height: 1.2rem;
   background-color: var(--loading-color);
   margin-bottom: 1.2rem;
+  margin: 0 var(--main-margin);
 `;
 
-// Create a Wrapper component that'll render a <section> tag with some styles
 export const Wrapper = styled.section`
   position: relative;
-  padding: 0 var(--main-margin) 50px;
-  overflow: hidden;
+  width: 100%;
+`;
+
+export const ScrollContainer = styled.div`
+  position: relative;
+  overflow-x: scroll;
+  width: 100%;
+  padding: 1.2rem var(--main-margin) 50px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
 `;
 
 export const MoviesContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: fit-content;
-  transform: translateX(${(props) => props.$translate}px);
   transition: transform 0.5s ease-in-out;
 `;
 

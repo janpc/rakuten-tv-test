@@ -9,12 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import {
   ArrowButton,
   MoviesContainer,
+  ScrollContainer,
   Title,
   Wrapper,
 } from './list.styles';
 import MovieListItem from '../item/item';
 import arrowLeft from '../../../assets/images/arrow-left.svg';
 import arrowRight from '../../../assets/images/arrow-right.svg';
+import { getCurrentMargin } from '../../../utils/responsive';
 
 export default function List({ listPromise }) {
   const {
@@ -23,10 +25,10 @@ export default function List({ listPromise }) {
     error,
     content,
   } = use(listPromise);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [isFullLeft, setIsFullLeft] = useState(true);
   const [isFullRight, setIsFullRight] = useState(false);
   const [hover, setHover] = useState(false);
+  const scrollContainerRef = useRef();
   const moviesContainerRef = useRef();
   const navigate = useNavigate();
 
@@ -37,31 +39,31 @@ export default function List({ listPromise }) {
   }, [error]);
 
   function scrollListLeft() {
-    let x = scrollPosition - (window.innerWidth - (64 * 2));
-    const totalWidth = moviesContainerRef.current.getBoundingClientRect().width;
-    const maxScroll = -totalWidth + (window.innerWidth - (64 * 2));
+    const margin = getCurrentMargin();
+    const containerWidth = scrollContainerRef.current.offsetWidth;
+    const x = containerWidth - 2 * margin;
 
-    if (x < maxScroll) {
-      x = maxScroll;
-    }
-
-    setIsFullRight(x === maxScroll);
-    setIsFullLeft(false);
-
-    setScrollPosition(x);
+    scrollContainerRef.current.scrollLeft += x;
   }
 
   function scrollListRight() {
-    let x = scrollPosition + window.innerWidth - (64 * 2);
+    const margin = getCurrentMargin();
+    const containerWidth = scrollContainerRef.current.offsetWidth;
+    const currentScroll = scrollContainerRef.current.scrollLeft;
+    const x = currentScroll - (containerWidth - 2 * margin);
 
-    if (x > 0) {
-      x = 0;
-    }
+    scrollContainerRef.current.scrollLeft = x;
+  }
 
-    setIsFullLeft(x === 0);
-    setIsFullRight(false);
+  function handleScroll() {
+    const margin = getCurrentMargin();
+    const containerWidth = scrollContainerRef.current.offsetWidth;
+    const fullWidth = moviesContainerRef.current.offsetWidth;
+    const currentScroll = scrollContainerRef.current.scrollLeft;
+    const maxScroll = fullWidth - (containerWidth - 2 * margin);
 
-    setScrollPosition(x);
+    setIsFullLeft(currentScroll === 0);
+    setIsFullRight(currentScroll === maxScroll);
   }
 
   if (error) {
@@ -94,14 +96,15 @@ export default function List({ listPromise }) {
       >
         <img alt="Move right arrow" src={arrowRight} />
       </ArrowButton>
-      <MoviesContainer $translate={scrollPosition} ref={moviesContainerRef}>
-        {
-          movies.map((movie) => (
-            <MovieListItem key={movie.id} movie={movie} />
-          ))
-        }
-      </MoviesContainer>
-
+      <ScrollContainer ref={scrollContainerRef} onScroll={handleScroll}>
+        <MoviesContainer ref={moviesContainerRef}>
+          {
+            movies.map((movie) => (
+              <MovieListItem key={movie.id} movie={movie} />
+            ))
+          }
+        </MoviesContainer>
+      </ScrollContainer>
     </Wrapper>
   );
 }
