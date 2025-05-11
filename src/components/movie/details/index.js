@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import Details from './details';
 import { fetchMovie } from '../../../utils/fetch';
 import DetailsList from './details.loading';

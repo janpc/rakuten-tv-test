@@ -3,6 +3,8 @@ export async function fetchList(name) {
     const res = await fetch(`https://gizmo.rakuten.tv/v3/lists/${name}?classification_id=5&device_identifier=web&locale=es&market_code=es`);
 
     if (!res.ok) {
+      console.log('error');
+
       return {
         error: true,
         content: `Something went wrong loading ${name}.`,

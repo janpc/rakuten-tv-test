@@ -8,7 +8,7 @@ import MovieLoadingListItem from '../item/item.loading';
 
 export default function LoadingList() {
   return (
-    <Wrapper>
+    <Wrapper data-testid="loading-movie-list">
       <LoadingTitle />
       <ScrollContainer>
         <MoviesContainer $translate={0}>

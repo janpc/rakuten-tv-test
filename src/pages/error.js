@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { Main } from '../styles/main.styles';
 import ErrorMessage from '../components/common/error-message';
 

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import rakutenLogo from '../../../assets/images/rakutentv.png';
 import { Container, Logo, Message } from './error-message.styles';
 

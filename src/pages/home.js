@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import MoviesList from '../components/movie/list';
 import { Main } from '../styles/main.styles';
 import Header from '../components/common/header/header';
