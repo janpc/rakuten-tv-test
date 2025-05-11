@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import MovieDetils from './components/movie/details';
+import Trailer from './pages/player';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route path="movie/:id" element={<MovieDetils />} />
         </Route>
+        <Route exact path="/play/trailer/:id" element={<Trailer />} />
       </Routes>
     </BrowserRouter>
   );

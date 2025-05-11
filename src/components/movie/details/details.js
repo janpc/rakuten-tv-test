@@ -88,7 +88,7 @@ export default function Detils({ moviePromise }) {
           <PeopleTitle>Directores</PeopleTitle>
           <PeopleList $cols={1}>
             {
-              directors.map(((director) => <PeopleListItem info={director} />))
+              directors.map(((director) => <PeopleListItem key={director.id} info={director} />))
             }
           </PeopleList>
         </Directors>
@@ -96,7 +96,7 @@ export default function Detils({ moviePromise }) {
           <PeopleTitle>Cast</PeopleTitle>
           <PeopleList $cols={3}>
             {
-              actors.map(((actor) => <PeopleListItem info={actor} />))
+              actors.map(((actor) => <PeopleListItem key={actor.id} info={actor} />))
             }
           </PeopleList>
         </Cast>

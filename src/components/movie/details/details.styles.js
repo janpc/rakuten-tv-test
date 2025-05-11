@@ -63,8 +63,8 @@ export const TrailerButton = styled(Link)`
   padding: 0px;
   border-radius: 100%;
   cursor: pointer;
-  min-width: 60px;
-  min-height: 60px;
+  width: 60px;
+  height: 60px;
   background: none;
   border: none;
 
