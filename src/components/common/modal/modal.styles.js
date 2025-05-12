@@ -2,11 +2,6 @@ import styled from 'styled-components';
 
 export const Background = styled.div`
   position: fixed;
-  z-index: 0;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
   background-color: #000d;
   transition: opacity 0.2s ease-in;
   z-index: 10;
@@ -17,7 +12,7 @@ export const Background = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow: hidden;
   overflow-y: scroll;
 `;
 
@@ -25,14 +20,19 @@ export const Content = styled.section`
   position: absolute;
   width: 100%;
   max-width: 936px;
+  min-height: 100%;
   transform: translateY(0px);
   opacity: 1;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   background-color: var(--bg-color);
-  border-radius: 24px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  overflow: hidden;
+
+  @media (min-width: 450px) {
+    overflow: hidden;
+    width: calc(100% - 40px);
+    border-radius: 24px;
+    min-height: 0;
+    top: 32px;
+  }
 `;
 export const CloseButton = styled.button`
   outline: none;
