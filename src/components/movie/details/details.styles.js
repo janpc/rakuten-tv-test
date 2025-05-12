@@ -39,12 +39,12 @@ export const Title = styled.h1`
     transition: color 0.15s ease-out;
     display: block;
     word-break: break-word;
-    font-size: 2.074rem;
+    font-size: 2rem;
     font-family: "RakutenSans Bold", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
     font-weight: bold;
     color: rgb(240, 240, 240);
     text-align: left;
-    line-height: 50px;
+    line-height: 2.5rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -87,7 +87,7 @@ export const MovieInfo = styled.div`
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 16px;
-  padding: 0px 40px;
+  padding: 0px var(--main-margin);
 
   @media (min-width: 1100px) {
     margin-top: 40px;
@@ -155,7 +155,7 @@ export const People = styled.div`
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 40px;
-  padding: 0px 40px;
+  padding: 0px var(--main-margin);
 
   @media (min-width: 1100px) {
     margin-top: 40px;
@@ -168,7 +168,7 @@ export const People = styled.div`
 `;
 
 export const Directors = styled.div`
-  width: calc(100% - 80px);
+  width: calc(100% - 2 * var(--main-margin));
   display: flex;
   flex-wrap: wrap;
   align-self: flex-start;
@@ -183,7 +183,7 @@ export const Directors = styled.div`
 `;
 
 export const Cast = styled.div`
-  width: calc(100% - 80px);
+  width: calc(100% - 2 * var(--main-margin));
   display: flex;
   flex-direction: column;
   gap: 8px;
