@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Rakuten TV - Front-end Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my project for the Rakuten TV Front-end Test. It's a a web application that simulates the Rakuten TV website. It consists of a main page with various film listings as well as detailed information and trailers for these films.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Start 🚀
 
-### `npm start`
+Get a clone of the project in local. You need to have installed nodejs and npm
+in your computer to run and develop the project locally.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Requirements 📋
 
-### `npm test`
+_You need to install nodejs and npm_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Instalation 🔧
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_First clone the repository_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/janpc/rakuten-tv-test.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Then run yarn install in the base folder_
 
-### `npm run eject`
+```
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_When you have all the denpedencies you can start the project_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm run dev
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Build with 🛠️
 
-## Learn More
+- [npm](https://www.npmjs.com/)
+- [React](https://es.reactjs.org/)
+- [Styled Components](https://styled-components.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I have chosen these technologies because I wanted to make a simple project and I wanted them to be as similar as possible to those used in Rakuten TV. I didn't use redux because I didn't think it was necessary to have a global state of the whole application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+He uasdo la ultima version de react y algunas de sus nuevas funcionalidades porque me ha parecido un buena excusa para probarlas. Esto me ha pasado factura a la hora de hacer los test porque no hay mucha documentación al respecto.
 
-### Code Splitting
+## Things to improve
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+I haven't had much time so there are quite a few things to improve. The first and most important is the tests that I have not been able to implement them. Although I had already done tests with asynchronous calls to apis with mocked results, I haven't found the way to do them with the Suspense component.
 
-### Analyzing the Bundle Size
+Another thing I would improve would be the design in general and especially the responsive part. I have tried to imitate the design of the rakuten website but I haven't had enough time to do it as I would like. And in the responsive part I think it's not bad but it can be improved.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Finally, I think that the accessibility should also be improved because, although I have been checking and improving small things, it could be reviewed well and see that everything is accessible correctly by keyboard, that all images and links have an alternative text, that the element in which the user is (when there is hover or focus) is highlighted...
